@@ -1,0 +1,39 @@
+---
+title: 新着情報
+description:
+page_id: news
+mv_link: news
+mv_ttl: NEWS
+breadcrumb_ttl: 新着情報
+dir: ../..
+---
+
+{% include "header.njk" %}
+
+<main class="sub">
+  {% include "lower-mv.njk" %}
+  <article>
+    <section class="sub-news-details pd-lr pd-tb">
+      <div class="inner">
+        <div class="wrap">
+          <div class="txt_box">
+            <h2 class="date">{{ postDate }}</h2>
+            <h3 class="ttl">{{ postTitle }}</h3>
+          </div>
+        </div>
+        <div class="news_main">
+          {{ content | safe }}
+        </div>
+        <div class="prev-next__wrapper">
+          {% set previousPost = collections.news | getPreviousCollectionItem(page) %} {% set nextPost = collections.news | getNextCollectionItem(page) %} {% if previousPost %}
+          <!-- <a class="prev" href="{{ dir }}{{ previousPost.url }}index.html">＜<span>前へ戻る</span></a> -->
+          {% endif %}
+          <a class="btn01 center" href="{{ dir }}/news/1/index.html"><span>一覧に戻る</span></a>
+          {% if nextPost %}
+          <!-- <a class="next" href="{{ dir }}{{ nextPost.url }}index.html"><span>次へ進む</span>＞</a> -->
+          {% endif %}
+        </div>
+      </div>
+  </article>
+</main>
+{% include "footer.njk" %}

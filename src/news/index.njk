@@ -1,0 +1,169 @@
+---
+title: 新着情報
+description:
+page_id: news
+mv_link: news
+mv_ttl: NEWS
+breadcrumb_ttl: 新着情報
+pagination: 
+  data: collections.news
+  size: 11
+  alias: news
+permalink: "news/{{pagination.pageNumber + 1}}/index.html"
+dir: ../..
+---
+{% include "header.njk" %}
+
+<main class="sub">
+  <article>
+    {% include "lower-mv.njk" %}
+    <section class="sub-news-list pd-lr pd-tb">
+      <div class="inner">
+        <ul class="news-list">
+          {% for item in news | sort(attribute="data.postDate") | reverse  %}
+          <li class="news-item">
+            <a  href="{{dir}}{{ item.url }}index.html" class="">
+              <span class="date">{{ item.data.postDate }}</span>
+              <span class="ttl">{{ item.data.postTitle }}</span>
+              <span>＞</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+
+        <ul class="news__pagination">
+          <li>
+            {% if pagination.href.previous %}
+            <!-- <a class="prev-page" href="{{ dir }}{{ pagination.href.previous }}index.html">＜</a> -->
+            {% endif %}
+          </li>
+          {% for page_entry in pagination.pages %} {%- set page_url = pagination.hrefs[loop.index0] -%}
+          <li><a href="{{ dir }}{{ page_url }}index.html" {% if page.url == page_url %} aria-current="page" class="current_page" {% endif %}>
+            {{ loop.index }}
+            </a>
+          </li>
+          {% endfor %}
+          <li>
+            {% if pagination.href.next %}
+            <!-- <a class="next-page" href="{{ dir }}{{ pagination.href.next }}index.html">＞</a> -->
+            {% endif %}
+          </li>
+        </ul>
+
+        <div class="news_client">
+          <h2 class="section_ttl animate-bottom">主要取引先<span>MAIN CLIENT</span></h2>
+          <div class="wrap pc">
+            <ul>
+              <li>・旭イノベックス株式会社</li>
+              <li>・阿部商事株式会社</li>
+              <li>・伊藤忠丸紅住商テクノスチール株式会社</li>
+              <li>・岩田地崎建設株式会社</li>
+              <li>・株式会社ＮＳ成澤創機</li>
+              <li>・株式会社大林組</li>
+              <li>・株式会社カナモト</li>
+              <li>・株式会社北川組鉄工所</li>
+              <li>・五洋建設株式会社</li>
+              <li>・株式会社産鋼スチール</li>
+              <li>・清水建設株式会社</li>
+              <li>・株式会社竹中工務店</li>
+              <li>・玉造株式会社</li>
+              <li>・中山三星建材株式会社</li>
+              <li>・阪和興業株式会社</li>
+              <li>・藤建設工業株式会社</li>
+              <li>・フルサト工業株式会社</li>
+              <li>・株式会社マルキンサトー</li>
+              <li>・三井住友建設株式会社</li>
+              <li>・株式会社横森製作所</li>
+            </ul>
+            <ul>
+              <li>・阿部鋼材株式会社</li>
+              <li>・伊藤組土建株式会社</li>
+              <li>・岩倉建設株式会社</li>
+              <li>・エア・ウォーター北海道株式会社</li>
+              <li>・エムエム建材株式会社</li>
+              <li>・株式会社奥村組</li>
+              <li>・株式会社カネトミ北勝興業</li>
+              <li>・共和鉄工株式会社</li>
+              <li>・株式会社札幌巴コーポレーション</li>
+              <li>・ＪＦＥ商事鉄鋼建材株式会社</li>
+              <li>・大成建設株式会社</li>
+              <li>・株式会社竹原鉄工所</li>
+              <li>・豊通鉄鋼販売株式会社</li>
+              <li>・日鉄物産株式会社</li>
+              <li>・菱中建設株式会社</li>
+              <li>・株式会社双葉工業社</li>
+              <li>・松田鉄工株式会社</li>
+              <li>・丸彦渡辺建設株式会社</li>
+              <li>・株式会社メタルプロダクツ</li>
+              <li>・株式会社ワテックス北海道</li>
+              <li>・その他道内外建築会社・各商社</li>
+            </ul>
+          </div>
+          <div class="wrap sp">
+            <ul>
+              <li>・旭イノベックス株式会社</li>
+              <li>・阿部鋼材株式会社</li>
+              <li>・阿部商事株式会社</li>
+              <li>・伊藤組土建株式会社</li>
+              <li>・伊藤忠丸紅住商テクノスチール株式会社</li>
+              <li>・岩倉建設株式会社</li>
+              <li>・岩田地崎建設株式会社</li>
+              <li>・エア・ウォーター北海道株式会社</li>
+              <li>・株式会社ＮＳ成澤創機</li>
+              <li>・エムエム建材株式会社</li>
+              <li>・株式会社大林組</li>
+              <li>・株式会社奥村組</li>
+              <li>・株式会社カナモト</li>
+              <li>・株式会社カネトミ北勝興業</li>
+              <li>・株式会社北川組鉄工所</li>
+              <li>・共和鉄工株式会社</li>
+              <li>・五洋建設株式会社</li>
+              <li>・株式会社札幌巴コーポレーション</li>
+              <li>・株式会社産鋼スチール</li>
+              <li>・ＪＦＥ商事鉄鋼建材株式会社</li>
+              <li>・清水建設株式会社</li>
+              <li>・大成建設株式会社</li>
+              <li>・株式会社竹中工務店</li>
+              <li>・株式会社竹原鉄工所</li>
+              <li>・玉造株式会社</li>
+              <li>・豊通鉄鋼販売株式会社</li>
+              <li>・中山三星建材株式会社</li>
+              <li>・日鉄物産株式会社</li>
+              <li>・阪和興業株式会社</li>
+              <li>・菱中建設株式会社</li>
+              <li>・藤建設工業株式会社</li>
+              <li>・株式会社双葉工業社</li>
+              <li>・フルサト工業株式会社</li>
+              <li>・松田鉄工株式会社</li>
+              <li>・株式会社マルキンサトー</li>
+              <li>・丸彦渡辺建設株式会社</li>
+              <li>・三井住友建設株式会社</li>
+              <li>・株式会社メタルプロダクツ</li>
+              <li>・株式会社横森製作所</li>
+              <li>・株式会社ワテックス北海道</li>
+              <li>・その他道内外建築会社・各商社</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- recruit -->
+    <a id="top_recruit" class="anchor" href="#"></a>
+    <section class="top_recruit">
+      <div class="inner">
+        <div class="img_box">
+          <img src="{{dir}}/img/top/recruit/img01.png" alt="img01" class="w100 animate-left">
+        </div>
+        <div class="txt_box">
+          <h2 class="section_ttl animate-bottom">採用情報<span>RECRUIT</span></h2>
+          <h3 class="animate-bottom">日々新しいことに挑戦。<br>
+          未来へつなぐ技術を</h3>
+          <a href="https://philidev.softnext.co.jp/oji-machinery-hokkaido-recruit/index.html" target="_blank" class="btn01 hv btn01noarrow  animate-bottom">採用サイトへ　＞</a>
+        </div>
+      </div>
+    </section>
+    <!-- recruit -->
+  </article>
+</main>
+
+{% include "footer.njk" %}
