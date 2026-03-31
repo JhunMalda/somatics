@@ -1,0 +1,6 @@
+@charset "UTF-8";
+:root {
+  --window-padding: 4vw;
+  --vertical-window-padding: 5rem;
+}
+.services-grid { grid-template-columns: repeat(2,1fr); }

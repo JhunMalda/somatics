@@ -1,0 +1,18 @@
+@charset "UTF-8";
+:root {
+  --window-padding: 5vw;
+  --vertical-window-padding: 4rem;
+}
+.mv { grid-template-columns: 1fr; }
+.hero-photo { min-height: 320px; order: -1; }
+.hero-text { padding: 3rem var(--window-padding); }
+.about-grid,
+.services-grid,
+.team-grid,
+.contact-grid,
+.philosophy { grid-template-columns: 1fr; }
+.philosophy-img { min-height: 200px; }
+.philosophy-copy { padding: 3rem var(--window-padding); }
+.cta-band { flex-direction: column; text-align: center; }
+.form-row { grid-template-columns: 1fr; }
+.stats-row { flex-wrap: wrap; gap: 1.5rem; }

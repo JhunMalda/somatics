@@ -1,0 +1,64 @@
+---
+title: Blog
+description: Latest news, insights, and articles from the Somatics.ph team.
+page_id: news
+mv_ttl: Blog
+dir: ../..
+pagination:
+  data: collections.news
+  size: 11
+  alias: news
+permalink: "news/{{pagination.pageNumber + 1}}/index.html"
+---
+{% include "header.njk" %}
+
+<main class="sub">
+  <article>
+    <div class="lower-mv">
+      <h1>Blog</h1>
+    </div>
+
+    <section class="sub-news-list">
+      <div style="max-width:800px;margin:0 auto">
+        <p class="section-label animate-bottom">Latest Posts</p>
+        <h2 class="section-h2 animate-bottom">Insights on<br><em>embodied living</em></h2>
+      </div>
+      <ul class="news-list animate-bottom">
+        {% for item in news | sort(attribute="data.postDate") | reverse %}
+        <li class="news-item">
+          <a href="{{dir}}{{ item.url }}index.html">
+            <span class="date">{{ item.data.postDate }}</span>
+            <span class="ttl">{{ item.data.postTitle }}</span>
+            <span style="color:var(--muted)">→</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+
+      {% if pagination.pages.length > 1 %}
+      <ul style="display:flex;justify-content:center;gap:.5rem;margin-top:3rem;list-style:none">
+        {% for page_entry in pagination.pages %}
+        {%- set page_url = pagination.hrefs[loop.index0] -%}
+        <li>
+          <a href="{{ dir }}{{ page_url }}index.html"
+             style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid var(--stone);border-radius:2px;font-size:.85rem;color:var(--mid);transition:background .2s"
+             {% if page.url == page_url %}style="background:var(--sage-deep);color:#fff;border-color:var(--sage-deep)"{% endif %}>
+            {{ loop.index }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </section>
+
+    <div class="cta-band">
+      <div class="cta-band-text">
+        <h2>Ready to begin?</h2>
+        <p>A first session is a conversation. No commitment needed — just curiosity.</p>
+      </div>
+      <a href="{{dir}}/contact.html" class="btn-white">Book a Free Consultation</a>
+    </div>
+  </article>
+</main>
+
+{% include "footer.njk" %}
