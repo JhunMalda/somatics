@@ -1,164 +1,45 @@
 @charset "UTF-8";
 
 .footer {
-  color: #717171;
-  background-color: var(--main-bg-color);
-  padding-top: 60px;
-  padding-bottom: 30px;
+  background: var(--charcoal, #2A2825);
+  color: rgba(255,255,255,.5);
+  padding: 3.5rem 5vw 2rem;
 }
-
 .footer .inner {
-  display: flex;
-  gap: 30px;
-  margin-bottom: 50px;
-  font-weight: 600;
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 3rem; margin-bottom: 3rem;
 }
-
-.footer_logo,
-.footer_address,
-.footer_nav {
-  width: 100%;
+.footer_logo { display: flex; flex-direction: column; gap: 1rem; }
+.footer_logo .logo img { height: 36px; width: auto; }
+.footer_logo p { font-size: .84rem; line-height: 1.7; max-width: 240px; }
+.footer_address { font-size: .84rem; line-height: 1.7; }
+.footer_address div { margin-bottom: 12px; }
+.footer_nav ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+.footer_nav ul.sp { display: none; }
+.footer_nav > h4 {
+  font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(255,255,255,.8); margin-bottom: 1rem;
 }
-
-.footer_logo {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-bottom: 50px;
-}
-
-.footer_logo .logo img {
-  width: 100%;
-  max-width: 100px;
-  height: auto;
-}
-
-.footer_logo .recruit_btn {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  color: var(--font-color);
-}
-
-.footer_logo .recruit_btn img {
-  width: 30px;
-}
-
-.footer_address div {
-  margin-bottom: 20px;
-}
-
-.footer_address div:nth-last-child(1) {
-  margin-bottom: 0;
-}
-
-.footer_nav ul {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.footer_nav ul li {
-  width: 50%;
-  margin-bottom: 20px;
-}
-
 .footer_nav ul li a {
-  color: #717171;
-  position: relative;
-  padding-bottom: 5px;
-  position: relative;
+  color: rgba(255,255,255,.5); font-size: .85rem;
+  transition: color .2s;
 }
-
-.footer_nav ul.sp {
-  display: none;
-}
-
-.footer_nav ul li a.mail_icon {
-  padding-right: 26px;
-}
-
-.footer_nav ul li a.mail_icon::after {
-  content: "";
-  background: url(../img/mail-icon_footer.png) no-repeat;
-  background-size: contain;
-  background-position: center;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 22px;
-  height: 20px;
-}
-
-.footer_nav ul li a::before {
-  content: "";
-  background-color: var(--main-bg-color);
-  width: 0%;
-  height: 2px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  transition: 0.5s;
-}
-
-.footer_nav ul li a:hover::before {
-  width: 100%;
-}
-
-.footer .btns {
-  display: flex;
-  gap: 30px;
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto 50px;
-}
-
-.footer .btns a {
-  width: 100%;
-  max-width: 100%;
-  height: 70px;
-}
-
+.footer_nav ul li a:hover { color: rgba(255,255,255,.9); }
 .copyright {
-  text-align: center;
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding-top: 1.5rem; margin-top: 0;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem; font-size: .78rem;
 }
+.footer-social { display: flex; gap: 1rem; }
+.footer-social a { color: rgba(255,255,255,.4); font-size: .78rem; letter-spacing: .06em; transition: color .2s; }
+.footer-social a:hover { color: rgba(255,255,255,.8); }
 
-@media screen and (max-width: 768px) {
-  .footer .inner {
-    flex-direction: column;
-    margin-bottom: 20px;
-  }
-
-  .footer_logo {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-bottom: 0;
-    text-align: center;
-    gap: 30px;
-  }
-
-  .footer_logo .recruit_btn {
-    justify-content: center;
-  }
-
-  .footer_nav ul {
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  .footer_nav ul li {
-    width: 100%;
-  }
-
-  .copyright {
-    font-size: 14px;
-  }
-
-  .footer_nav ul.sp {
-    display: flex;
-  }
-
-  .footer_nav ul.pc {
-    display: none;
-  }
+@media screen and (max-width: 900px) {
+  .footer .inner { grid-template-columns: 1fr 1fr; }
+}
+@media screen and (max-width: 560px) {
+  .footer .inner { grid-template-columns: 1fr; }
+  .footer_nav ul.sp { display: flex; }
+  .footer_nav ul.pc { display: none; }
 }

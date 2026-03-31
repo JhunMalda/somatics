@@ -1,72 +1,105 @@
-  <div id="page_top"><a href="#"></a></div>
-  {% if page_id=='top' %}
-  <!-- loader-bg -->
-  <link rel="stylesheet" href="{{dir}}/loader-bg/loader-bg.css">
-  <div id="loader-bg">
-    <div id="loader">
-      <img src="{{dir}}/loader-bg/loader_logo.jpg" alt="Loading..." />
-      <div class="loadingBar" id="loadingBar"></div>
-    </div>
-  <script src="{{dir}}/loader-bg/loader-bg.js"></script>
-  <script src="{{dir}}/loader-bg/progressbar.js"></script>
-  </div>
-  {% endif %}
-  <!-- //loader-bg -->
-      <footer class="footer pd-lr animate-bottom">
-        {% if page_id=='top' %}
-        <div class="inner">
-          <div class="footer_logo">
-            <a href="#" class="logo"><img src="{{dir}}/img/logo.jpg" alt="somatics"></a>
-          </div>
-          <div class="footer_address">
-            <div>
-              address
-            </div>
-          </div>
-          <div class="footer_nav">
-            <ul class="pc">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Service</a></li>
-              <li><a href="#">Blog</a></li>
-            </ul>
-            <ul class="sp">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Service</a></li>
-              <li><a href="#">Blog</a></li>
-            </ul>
-          </div>
+    <div id="page_top"><a href="#" aria-label="Back to top"></a></div>
+
+    <footer class="footer animate-bottom">
+      <div class="inner">
+        <div class="footer_logo">
+          <a href="{{ lower_target }}index.html" class="logo">
+            <img src="{{ dir }}/img/logo.jpg" alt="Somatics.ph" />
+          </a>
+          <p>Somatic movement and wellness practice. Reconnecting people with the wisdom of their bodies.</p>
         </div>
-        {% else %}
-        <div class="inner">
-          <div class="footer_logo">
-            <a href="#" class="logo"><img src="{{dir}}/img/logo.jpg" alt="somatics"></a>
-          </div>
-          <div class="footer_address">
-            <div>
-              address
-            </div>
-          </div>
-          <div class="footer_nav">
-            <ul class="pc">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Service</a></li>
-              <li><a href="#">Blog</a></li>
-            </ul>
-            <ul class="sp">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Service</a></li>
-              <li><a href="#">Blog</a></li>
-            </ul>
-          </div>
+        <div class="footer_address">
+          <h4 style="font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-bottom:1rem">Contact</h4>
+          <div>Quezon City, Metro Manila<br>Philippines</div>
+          <div>hello@somatics.ph</div>
+          <div>+63 917 000 0000</div>
         </div>
-        {% endif %}
-        <p class="copyright">Copyright © Somatics.ph All Rights Reserved.</p>
-      </footer>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    </body>
+        <div class="footer_nav">
+          <h4 style="font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-bottom:1rem">Pages</h4>
+          <ul class="pc">
+            <li><a href="{{dir}}/index.html">Home</a></li>
+            <li><a href="{{dir}}/about/index.html">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="{{dir}}/news/1/index.html">Blog</a></li>
+            <li><a href="{{dir}}/contact/index.html">Contact</a></li>
+            <li><a href="{{dir}}/privacy/index.html">Privacy Policy</a></li>
+          </ul>
+          <ul class="sp">
+            <li><a href="{{dir}}/index.html">Home</a></li>
+            <li><a href="{{dir}}/about/index.html">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="{{dir}}/news/1/index.html">Blog</a></li>
+            <li><a href="{{dir}}/contact/index.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer_nav">
+          <h4 style="font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-bottom:1rem">Follow</h4>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="copyright">
+        <span>© 2026 Somatics.ph · All rights reserved</span>
+        <span class="footer-social">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="{{dir}}/privacy/index.thml.html">Privacy</a>
+        </span>
+      </p>
+    </footer>
+
+    <!-- JS -->
+    <script src="{{ dir }}/js/functions.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+    // Nav scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('active', window.scrollY > 40);
+    }, {passive:true});
+
+    // Mobile hamburger
+    const ham = document.getElementById('hamburger');
+    if (ham) {
+      ham.addEventListener('click', () => {
+        ham.classList.toggle('active');
+        navbar.classList.toggle('nav-open');
+      });
+      document.querySelectorAll('.nav-box a').forEach(a => {
+        a.addEventListener('click', () => {
+          ham.classList.remove('active');
+          navbar.classList.remove('nav-open');
+        });
+      });
+    }
+
+    // Testimonial slider (only on pages that have it)
+    const track = document.getElementById('testi-track');
+    if (track) {
+      let current = 0;
+      const dots = document.querySelectorAll('.testi-dot');
+      function goTo(i) {
+        current = i;
+        track.style.transform = `translateX(-${i * 100}%)`;
+        dots.forEach((d, j) => d.classList.toggle('active', j === i));
+      }
+      dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.i)));
+      setInterval(() => goTo((current + 1) % dots.length), 5000);
+    }
+
+    // Contact form
+    const form = document.getElementById('contact-form');
+    if (form) {
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        document.getElementById('form-success').style.display = 'block';
+        form.querySelectorAll('input,textarea,select,button').forEach(el => el.disabled = true);
+      });
+    }
+    </script>
+  </body>
 </html>

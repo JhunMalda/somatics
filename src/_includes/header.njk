@@ -1,106 +1,73 @@
-{%- set site_title = '' -%}
-{%- set site_description = '' -%}
+{%- set site_title = 'Somatics.ph' -%}
+{%- set site_description = 'Somatic movement and wellness practice in the Philippines. Reconnect with your body through intentional movement.' -%}
 {%- set lower_target = '' -%}
-{%- if(page_id!='top') -%}
-{%- set lower_target = dir+'/' -%}
-{%- endif -%}
+{%- if(page_id!='top') -%}{%- set lower_target = dir+'/' -%}{%- endif -%}
 
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     {%- if title -%}
-    <title>{{ title }} | Somatics.ph {{ site_title }}</title>
+    <title>{{ title }} | Somatics.ph</title>
     {%- else -%}
-    <title>{{ site_title }} Somatics.ph </title>
-    {%- endif -%} {%- if description -%}
+    <title>Somatics.ph — Move. Feel. Heal.</title>
+    {%- endif -%}
+    {%- if description -%}
     <meta name="description" content="{{ description }}" />
     {%- else -%}
     <meta name="description" content="{{ site_description }}" />
     {%- endif -%}
-    <meta name="format-detection" content="telephone=no">
-    <!-- favicon -->
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- Favicon -->
     <link rel="shortcut icon" href="{{ dir }}/img/favicon.ico" />
-    <link rel="icon" href="{{ dir }}/img/favicon-192x192.png" sizes="48x48" type="image/png" media="all" />
-    <link rel="shortcut icon" href="{{ dir }}/img/favicon.ico" />
+    <link rel="icon" href="{{ dir }}/img/favicon-192x192.png" sizes="48x48" type="image/png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ dir }}/mfp.statics/mailformpro.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="../mfp.statics/mailformpro.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="{{ dir }}/css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="{{ dir }}/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="{{ dir }}/css/style-sp1000.css" media="only screen and (max-width: 1000px)" />
-    <link rel="stylesheet" type="text/css" href="{{ dir }}/css/style-sp768.css" media="only screen and (max-width: 768px)" />
-    <link rel="stylesheet" type="text/css" href="{{ dir }}/css/slick.css" />
-    <link rel="stylesheet" type="text/css" href="{{ dir }}/css/animation.css" />
+    <link rel="stylesheet" href="{{ dir }}/css/reset.css" />
+    <link rel="stylesheet" href="{{ dir }}/css/style.css" />
+    <link rel="stylesheet" href="{{ dir }}/css/animation.css" />
+    <link rel="stylesheet" href="{{ dir }}/css/style-sp1000.css" media="only screen and (max-width:1000px)" />
+    <link rel="stylesheet" href="{{ dir }}/css/style-sp768.css"  media="only screen and (max-width:768px)" />
 
-    <!-- Javascript -->
+    <!-- JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-    <script src="{{dir}}/js/functions.js"></script>
+  </head>
 
-    <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+JP:wght@100..900&family=Viga&display=swap" rel="stylesheet">
-    </head>
-    <!-- <div id="custom-cursor"></div> -->
-    <body id="{{ page_id }}">
-      {% if page_id=='top' %}
-      <header class="header-main">
-        <div class="inner">
-          <a href="{{ dir }}/index.html" class="header_logo">
-            <img src="{{dir}}/img/logo.jpg" alt="somatics">
-          </a>
-          <div class="nav-box">
-            <nav class="header-nav">
-              <ul class="link-wrap pc">
-                <li class="link-item"><a class="" href="#">Home</a></li>
-                <li class="link-item"><a class="" href="#">About</a></li>
-                <li class="link-item"><a class="" href="#">Service</a></li>
-                <li class="link-item"><a class="" href="#">Blog</a></li>
-              </ul>
-              <ul class="link-wrap sp">
-                <li class="link-item"><a class="" href="#">Home</a></li>
-                <li class="link-item"><a class="" href="#">About</a></li>
-                <li class="link-item"><a class="" href="#">Service</a></li>
-                <li class="link-item"><a class="" href="#">Blog</a></li>
-              </ul>
-            </nav>
-            <div class="contact-box">
-              <a class="contact-tel w-border" href="{{dir}}/contact/index.html">Contact</a>
-            </div>
+  <body id="{{ page_id }}">
+
+    <header class="header-main {% if page_id!='top' %}header-main_sub{% endif %}" id="navbar">
+      <div class="inner">
+        <a href="{{dir}}/index.html" class="header_logo">
+          <img src="{{ dir }}/img/logo.jpg" alt="Somatics.ph" />
+        </a>
+        <div class="nav-box">
+          <nav class="header-nav">
+            <ul class="link-wrap pc">
+              <li class="link-item"><a href="{{dir}}/index.html">Home</a></li>
+              <li class="link-item"><a href="{{dir}}/about/index.html">About</a></li>
+              <li class="link-item"><a href="#">Services</a></li>
+              <li class="link-item"><a href="{{dir}}/news/1/index.html">Blog</a></li>
+            </ul>
+            <ul class="link-wrap sp">
+              <li class="link-item"><a href="{{dir}}/index.html">Home</a></li>
+              <li class="link-item"><a href="{{dir}}/about/index.html">About</a></li>
+              <li class="link-item"><a href="#">Services</a></li>
+              <li class="link-item"><a href="{{dir}}/news/1/index.html">Blog</a></li>
+            </ul>
+          </nav>
+          <div class="contact-box">
+            <a class="contact-tel" href="{{dir}}/contact/index.html">Book a Session</a>
           </div>
-          <div class="sp-menu hide-pc"><span></span><span></span><span></span></div>
         </div>
-      </header>
-      {% else %}
-      <header class="header-main header-main_sub">
-        <div class="inner">
-          <a href="{{ dir }}/index.html" class="header_logo">
-            <img src="{{dir}}/img/logo.jpg" alt="somatics">
-          </a>
-          <div class="nav-box">
-            <nav class="header-nav">
-              <ul class="link-wrap pc">
-                <li class="link-item"><a class="" href="#">Home</a></li>
-                <li class="link-item"><a class="" href="#">About</a></li>
-                <li class="link-item"><a class="" href="#">Service</a></li>
-                <li class="link-item"><a class="" href="#">Blog</a></li>
-              </ul>
-              <ul class="link-wrap sp">
-                <li class="link-item"><a class="" href="#">Home</a></li>
-                <li class="link-item"><a class="" href="#">About</a></li>
-                <li class="link-item"><a class="" href="#">Service</a></li>
-                <li class="link-item"><a class="" href="#">Blog</a></li>
-              </ul>
-            </nav>
-            <div class="contact-box">
-              <a class="contact-tel w-border" href="{{dir}}/contact/index.html">Contact</a>
-            </div>
-          </div>
-          <div class="sp-menu hide-pc"><span></span><span></span><span></span></div>
-        </div>
-      </header>
-      {% endif %}
+        <button class="sp-menu hide-pc" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
